@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+		<title>React and Redux</title>
 
 		<link rel="stylesheet" href="css/reveal.css">
 		<link rel="stylesheet" href="css/theme/black.css">
@@ -24,8 +24,196 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
+				<section>
+					<object type="image/svg+xml" width="300" height="300" data="images/React.js_logo.svg"></object>
+					<h2>React and Redux</h2>
+					<p>
+						<small><a href="http://mysticcoders.com">Andrew Lombardi</a> / <a href="http://twitter.com/kinabalu">@kinabalu</a></small>
+					</p>
+					<p>
+						<small><a href="http://mysticcoders.com">Mystic Coders, LLC</a></small>
+					</p>
+				</section>
+				<section>
+					<section>
+						<h2>About Me</h2>
+						<img src="images/me_and_j.jpg" />
+					</section>
+					<section>
+						<h2>About Me</h2>
+						<p>16 Years in Business</p>
+						<p>Published Author</p>
+						<p>Software Consultants</p>
+						<p>International Speakers</p>
+						<p>Invented the Internet</p>
+						<p>Training</p>
+						<p>&nbsp;</p>
+						<p class="fragment"><strong>To our success!</strong></p>
+					</section>
+				</section>
+				<section data-background="images/rakia_63.png" />
+				</section>
+				<section>
+					<h2>WebSocket Book</h2>
+					<img class="stretch" src="images/WebSocket_comp.png" />
+					<a href="http://bit.ly/lombardi_websocket_book">http://bit.ly/lombardi_websocket_book</a>
+				</section>
+				<section>
+					<img src="images/797117307482963968-png__700.jpg" width="600" border="0" />
+				</section>
+				<section>
+					<img src="images/797612934729973760-png__700.jpg" width="600" border="0" />
+				</section>
+				<section>
+
+					Talk about the state of JavaScript on the web today
+					Explain that it came from Facebook but that's no reason to dismiss it.
+					Component based just like Wicket, the Java framework that I love.
+
+					Virtual DOM
+					Stateless Functional Components
+					Stateful Class Components / Containers
+				</section>
+				<section>
+					<object type="image/svg+xml" width="462" height="80" data="images/Apache_Wicket_logo.svg"></object>
+					<p>Component-based</p>
+					<p>Just Java and Just HTML</p>
+				</section>
+				<section>
+					<object type="image/svg+xml" width="250" height="250" data="images/React.js_logo.svg"></object>
+					<h2>React is...</h2>
+					<p>Component-based</p>
+					<p>Just JavaScript and JSX (embedded HTML)</p>
+					<p>Only the 'V' in MVC</p>
+					<p>No ugly templates</p>
+				</section>
+				<section>
+					<h2>Virtual DOM</h2>
+					<p>Pure JavaScript</p>
+					<p>In-memory representation of DOM</p>
+					<p><code>render()</code> runs whenever something changes</p>
+					<p>Diffs with the old one</p>
+					<p>Batch executes all queued updates</p>
+				</section>
+				<section>
+					<h2>React Lifecycle</h2>
+				</section>
+				<section>
+					<h1>Mounting</h1>
+					<p>
+						Called when component created or inserted into DOM
+					</p>
+<pre><code>constructor()
+componentWillMount()
+render()
+componentDidMount()
+</code></pre>
+				</section>
+				<section>
+					<h1>Updating</h1>
+					<p>
+						Changes to props or state or component re-render
+					</p>
+<pre><code>componentWillReceiveProps()
+shouldComponentUpdate()
+componentWillUpdate()
+render()
+componentDidUpdate()</code></pre>
+				</section>
+				<section>
+					<h2>Functional stateless components</h2>
+					<p>Also called presentational/dumb components</p>
+<pre><code data-trim>import React from ‘react’;
+
+const HelloWorld = ({name}) => (
+ <div>Hello, {name}!}</div>
+);
+
+export default HelloWorld;
+</code></pre>
+
+				</section>
+				<section>
+					<h2>Container components</h2>
+					<p class="fragment">The stateful kind</p>
+<pre><code data-trim data-noescape>class HelloWorldContainer extends React.Component {
+	constructor() {
+		super();
+		this.setState({
+			name: ''
+		});
+	}
+
+	componentDidMount() {
+		// do stuff to fill from external sources/APIs
+	}
+
+	render() {
+		return <HelloWorld name={this.state.name} />;
+	}
+}
+</code></pre>
+				</section>
+				<section>
+					<h2>React Starter Kit</h2>
+						<a href="https://github.com/coryhouse/react-slingshot">React Slingshot</a> by <a href="https://github.com/coryhouse">Cory House</a>
+				</section>
+				<section>
+					<h2>Resources for React</h2>
+					<a href="https://facebook.github.io/react/docs/thinking-in-react.html">Thinking in React</a>
+				</section>
+				<section>
+					<object type="image/svg+xml" width="300" height="300" data="images/Redux.js_logo.svg"></object>
+					<h2>Redux</h2>
+				</section>
+				<section>
+					<h1>Redux</h1>
+					<p class="fragment">A better Flux</p>
+					<p class="fragment">a predictable state container for JavaScript apps</p>
+				</section>
+				<section>
+					Redux-
+						Discuss what Flux and why it's important
+						Talk about the Redux one-way flow
+				</section>
+				<section>
+					<img src="images/redux-flow.gif" />
+				</section>
+				https://github.com/happypoulp/redux-tutorial
+				<section>
+					<h2>3 Things About React</h2>
+					<p>Pure components</p>
+					<p>One-way data binding</p>
+					<p>Fast</p>
+				</section>
+				<section>
+					<h2>3 Things About Redux</h2>
+					<p>Crazy simple</p>
+					
+					<!-- <p>Full-Duplex Bi-directional Communication</p>
+					<p>Layered Subprotocol Support</p> -->
+				</section>
+				<section>
+					<h1>Fin</h1>
+				</section>
+				<section>
+					<h1>Q &amp; A</h1>
+					<h3>Andrew Lombardi / <a href="http://www.twitter.com/kinabalu">@kinabalu</a></h3>
+					<p>
+						Mystic Coders, LLC
+					</p>
+					<p>
+						<a href="http://bit.ly/lombardi_websocket_book">bit.ly/lombardi_websocket_book</a>
+					</p>
+					<hr />
+					<p>
+						<small><a href="https://github.com/kinabalu/react_and_redux">https://github.com/kinabalu/react_and_redux</a></small>
+					</p>
+
+				</section>
+
+
+
 			</div>
 		</div>
 
