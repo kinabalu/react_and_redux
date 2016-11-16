@@ -77,6 +77,12 @@
 				<section>
 					<img src="images/797612934729973760-png__700.jpg" width="600" class="noborder" />
 				</section>
+				<section>
+					<h2>Key Points</h2>
+					<p class="fragment">Functional programming is awesome (avoid change in state, immutable)</p>
+					<p class="fragment">Components are beautiful</p>
+					<p class="fragment">JavaScript sucks, but React and Redux with ES6 make it bearable</p>
+				</section>
 				<section data-background="images/javascript-on-web-today.png">
 					<small><a href="https://hackernoon.com/how-it-feels-to-learn-javascript-in-2016-d3a717dd577f#.p5emg8fif">How it Feels to Learn JavaScript in 2016</a></small>
 				</section>
@@ -91,7 +97,7 @@
 					<h2>React is...</h2>
 					<p>Circa 2013</p>
 					<p>Component-based</p>
-					<p>Just JavaScript and JSX (embedded HTML)</p>
+					<p>Just JavaScript and JSX (embedded XML)</p>
 					<p>Only the 'V' in MVC</p>
 					<p>No ugly templates</p>
 				</section>
@@ -244,6 +250,42 @@ export default function pasteReducer(state = INITIAL_STATE, action) {
 	}
 }
 </code></pre>
+				</section>
+				<section>
+					<h2>Mapping state and dispatch</h2>
+<pre><code data-trim data-noescape>
+import { connect } from 'react-redux';
+
+const mapDispatchToProps = (dispatch) => {
+	// maps dispatch actions for executing action creators to props
+};
+
+function mapStateToProps(state) {
+	// contains state from store and allows mapping to props
+}
+
+export default connect(
+	mapStateToProps,
+	mapDispatchToProps)
+	(MyLittleComponent);
+</code></pre>
+				</section>
+				<section>
+					<h2>Action Dispatch</h2>
+<pre><code data-trim data-noescape>const mapDispatchToProps = (dispatch) => {
+  return {
+    loadPasteById: (pasteId) => {
+      dispatch(pasteActions.loadPasteById(pasteId));
+    }
+  };
+};
+</code></pre>
+				</section>
+				<section>
+					<h2>Calling action via props</h2>
+<pre><code data-trim data-noescape>componentWillMount() {
+	this.props.loadPasteById(this.props.pasteId);
+}</code></pre>
 				</section>
 				<section><h2>Hands-On Demo</h2></section>
 				<section>
