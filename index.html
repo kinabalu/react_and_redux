@@ -12,6 +12,13 @@
 		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
 
+		<style type="text/css">
+		.reveal .noborder {
+		  background:none;
+		  border:none;
+		  box-shadow:none;
+		  }
+		</style>
 		<!-- Printing and PDF exports -->
 		<script>
 			var link = document.createElement( 'link' );
@@ -27,6 +34,7 @@
 				<section>
 					<object type="image/svg+xml" width="300" height="300" data="images/React.js_logo.svg"></object>
 					<h2>React and Redux</h2>
+					<h6>Make the web fun again</h6>
 					<p>
 						<small><a href="http://mysticcoders.com">Andrew Lombardi</a> / <a href="http://twitter.com/kinabalu">@kinabalu</a></small>
 					</p>
@@ -34,14 +42,17 @@
 						<small><a href="http://mysticcoders.com">Mystic Coders, LLC</a></small>
 					</p>
 				</section>
+				<section data-background="images/horse_with_fireworks.gif">
+				</section>
 				<section>
 					<section>
 						<h2>About Me</h2>
-						<img src="images/me_and_j.jpg" />
+						<img src="images/me_and_j.jpg" class="noborder" />
 					</section>
 					<section>
 						<h2>About Me</h2>
 						<p>16 Years in Business</p>
+						<p>8 Years @ Java2Days</p>
 						<p>Published Author</p>
 						<p>Software Consultants</p>
 						<p>International Speakers</p>
@@ -50,50 +61,39 @@
 						<p>&nbsp;</p>
 						<p class="fragment"><strong>To our success!</strong></p>
 					</section>
+					<section data-background="images/big_in_bulgaria.gif" />
+					</section>
 				</section>
 				<section data-background="images/rakia_63.png" />
 				</section>
 				<section>
 					<h2>WebSocket Book</h2>
-					<img class="stretch" src="images/WebSocket_comp.png" />
+					<img src="images/WebSocket_comp.png" class="stretch noborder" />
 					<a href="http://bit.ly/lombardi_websocket_book">http://bit.ly/lombardi_websocket_book</a>
 				</section>
 				<section>
-					<img src="images/797117307482963968-png__700.jpg" width="600" border="0" />
+					<img src="images/797117307482963968-png__700.jpg" width="600" class="noborder" />
 				</section>
 				<section>
-					<img src="images/797612934729973760-png__700.jpg" width="600" border="0" />
+					<img src="images/797612934729973760-png__700.jpg" width="600" class="noborder" />
 				</section>
-				<section>
-
-					Talk about the state of JavaScript on the web today
-					Explain that it came from Facebook but that's no reason to dismiss it.
-					Component based just like Wicket, the Java framework that I love.
-
-					Virtual DOM
-					Stateless Functional Components
-					Stateful Class Components / Containers
+				<section data-background="images/javascript-on-web-today.png">
+					<small><a href="https://hackernoon.com/how-it-feels-to-learn-javascript-in-2016-d3a717dd577f#.p5emg8fif">How it Feels to Learn JavaScript in 2016</a></small>
 				</section>
 				<section>
 					<object type="image/svg+xml" width="462" height="80" data="images/Apache_Wicket_logo.svg"></object>
+					<p>Circa 2005</p>
 					<p>Component-based</p>
 					<p>Just Java and Just HTML</p>
 				</section>
 				<section>
 					<object type="image/svg+xml" width="250" height="250" data="images/React.js_logo.svg"></object>
 					<h2>React is...</h2>
+					<p>Circa 2013</p>
 					<p>Component-based</p>
 					<p>Just JavaScript and JSX (embedded HTML)</p>
 					<p>Only the 'V' in MVC</p>
 					<p>No ugly templates</p>
-				</section>
-				<section>
-					<h2>Virtual DOM</h2>
-					<p>Pure JavaScript</p>
-					<p>In-memory representation of DOM</p>
-					<p><code>render()</code> runs whenever something changes</p>
-					<p>Diffs with the old one</p>
-					<p>Batch executes all queued updates</p>
 				</section>
 				<section>
 					<h2>React Lifecycle</h2>
@@ -103,23 +103,36 @@
 					<p>
 						Called when component created or inserted into DOM
 					</p>
-<pre><code>constructor()
-componentWillMount()
-render()
-componentDidMount()
-</code></pre>
+					<img src="images/mounting_lifecycle.png" width="250" class="noborder" />
 				</section>
 				<section>
 					<h1>Updating</h1>
 					<p>
 						Changes to props or state or component re-render
 					</p>
-<pre><code>componentWillReceiveProps()
-shouldComponentUpdate()
-componentWillUpdate()
-render()
-componentDidUpdate()</code></pre>
+					<img src="images/update_lifecycle.png" class="noborder" />
 				</section>
+				<section>
+					<h2>Virtual DOM</h2>
+					<h6>React's solution to fast DOM updates</h6>
+					<p>Pure JavaScript</p>
+					<p>In-memory representation of DOM</p>
+					<p><code>render()</code> runs whenever something changes</p>
+					<p>Diffs with the old one</p>
+					<p>Batch executes all queued updates</p>
+				</section>
+				<section>
+					<h2>Conventions for this talk</h2>
+					<p>Code will be using ES6, transpiled using Babel</p>
+					<p>Uses npm scripts rather than Grunt or Gulp</p>
+					<p><code>yarn</code> instead of <code>npm</code> because it's superior</p>
+				</section>
+				<section>
+					<h2>React Starter Kit</h2>
+						<a href="https://github.com/coryhouse/react-slingshot">React Slingshot</a> by <a href="https://github.com/coryhouse">Cory House</a>
+						<p>Includes all necessary tooling to be successful with React and Redux</p>
+				</section>
+				<section><h2>Hands-On Demo</h2></section>
 				<section>
 					<h2>Functional stateless components</h2>
 					<p>Also called presentational/dumb components</p>
@@ -149,18 +162,40 @@ export default HelloWorld;
 	}
 
 	render() {
-		return <HelloWorld name={this.state.name} />;
+		return &lt;HelloWorld name={this.state.name} /&gt;;
 	}
 }
 </code></pre>
 				</section>
 				<section>
-					<h2>React Starter Kit</h2>
-						<a href="https://github.com/coryhouse/react-slingshot">React Slingshot</a> by <a href="https://github.com/coryhouse">Cory House</a>
+					<code>setState()</code>
+					<p>
+						Performs shallow merge of next state into current state. Triggers eventual UI update.
+					</p>
 				</section>
 				<section>
+					<code>propTypes</code>
+					<p>a property on the component class, defines what types the props should be.</p>
+					<small>In dev mode, warning is shown but skipped in prod for efficiency</small>
+				</section>
+				<section>
+					<code>props</code>
+					<p>
+					properties defined by the called of the component
+					</p>
+				</section>
+				<section>
+					<code>state</code>
+					<p>
+						user-defined data defined by the component as a plain-ole javascript object
+					</p>
+					<small>modified using <code>setState()</code> so it is queued properly with other updates</small>
+				</section>
+				<section><h2>Hands-On Demo</h2></section>
+				<section>
 					<h2>Resources for React</h2>
-					<a href="https://facebook.github.io/react/docs/thinking-in-react.html">Thinking in React</a>
+					<p><a href="https://facebook.github.io/react/">React.js Docs</a></p>
+					<p><a href="https://facebook.github.io/react/docs/thinking-in-react.html">Thinking in React</a></p>
 				</section>
 				<section>
 					<object type="image/svg+xml" width="300" height="300" data="images/Redux.js_logo.svg"></object>
@@ -168,30 +203,66 @@ export default HelloWorld;
 				</section>
 				<section>
 					<h1>Redux</h1>
-					<p class="fragment">A better Flux</p>
-					<p class="fragment">a predictable state container for JavaScript apps</p>
+					<p class="fragment">A better Flux implementation</p>
+					<p class="fragment">A predictable state container for JavaScript apps</p>
+					<p class="fragment">No dispatcher, Single store, Immutable</p>
 				</section>
 				<section>
-					Redux-
-						Discuss what Flux and why it's important
-						Talk about the Redux one-way flow
+					<h2>Flux Architecture</h2>
+					<img src="images/flux-diagram.png" class="noborder" />
 				</section>
 				<section>
-					<img src="images/redux-flow.gif" />
+					<img src="images/redux-flow.gif" class="noborder" />
 				</section>
-				https://github.com/happypoulp/redux-tutorial
+				<section>
+					<h2>Action Creators</h2>
+<pre><code data-trim data-noescape>function savePaste(code) {
+  return {
+    type: SAVE_PASTE,
+    code
+  }
+}
+</code></pre>
+				</section>
+				<section>
+					<h2>Reducers</h2>
+<pre><code data-trim data-noescape>
+const INITIAL_STATE = {
+  pastes: {
+    paste: null,
+    error: null,
+    loading: false
+  }
+};
+
+export default function pasteReducer(state = INITIAL_STATE, action) {
+	switch (action.type) {
+		case SAVE_PASTE:
+			return { ...state, pastes: { paste: null, error: null, loading: true }};
+		default:
+			return state
+	}
+}
+</code></pre>
+				</section>
+				<section><h2>Hands-On Demo</h2></section>
+				<section>
+					<h2>Resources for Redux</h2>
+					<p><a href="http://redux.js.org/">Main Redux Docs</a></p>
+					<p><a href="https://github.com/happypoulp/redux-tutorial">Redux Tutorial</a></p>
+					<p><a href="http://teropa.info/blog/2015/09/10/full-stack-redux-tutorial.html">Full Stack Redux Tutorial</a></p>
+				</section>
 				<section>
 					<h2>3 Things About React</h2>
-					<p>Pure components</p>
-					<p>One-way data binding</p>
-					<p>Fast</p>
+					<p class="fragment">Pure components</p>
+					<p class="fragment">One-way data binding</p>
+					<p class="fragment">Fast</p>
 				</section>
 				<section>
 					<h2>3 Things About Redux</h2>
-					<p>Crazy simple</p>
-					
-					<!-- <p>Full-Duplex Bi-directional Communication</p>
-					<p>Layered Subprotocol Support</p> -->
+					<p class="fragment">A single Store</p>
+					<p class="fragment">No dispatcher</p>
+					<p class="fragment">Immutable</p>
 				</section>
 				<section>
 					<h1>Fin</h1>
