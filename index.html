@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>React and Redux</title>
+		<title>React on Rakia</title>
 
 		<link rel="stylesheet" href="css/reveal.css">
 		<link rel="stylesheet" href="css/theme/black.css">
@@ -33,7 +33,7 @@
 			<div class="slides">
 				<section>
 					<object type="image/svg+xml" width="300" height="300" data="images/React.js_logo.svg"></object>
-					<h2>React and Redux</h2>
+					<h2>React on Rakia</h2>
 					<h6>Make the web fun again</h6>
 					<p>
 						<small><a href="http://mysticcoders.com">Andrew Lombardi</a> / <a href="http://twitter.com/kinabalu">@kinabalu</a></small>
@@ -51,31 +51,27 @@
 					</section>
 					<section>
 						<h2>About Me</h2>
-						<p>16 Years in Business</p>
-						<p>8 Years @ Java2Days</p>
+						<p>17 Years in Business</p>
+						<p>9 Years @ Java2Days</p>
 						<p>Published Author</p>
 						<p>Software Consultants</p>
-						<p>International Speakers</p>
+						<!-- <p>International Speakers</p> -->
 						<p>Invented the Internet</p>
-						<p>Training</p>
+						<!-- <p>Training</p> -->
 						<p>&nbsp;</p>
 						<p class="fragment"><strong>To our success!</strong></p>
+
 					</section>
-					<section data-background="images/big_in_bulgaria.gif" />
+					<section>
+						<img src="images/big_in_bulgaria.gif" width="800" class="noborder" />
 					</section>
 				</section>
 				<section data-background="images/rakia_63.png" />
 				</section>
 				<section>
 					<h2>WebSocket Book</h2>
-					<img src="images/WebSocket_comp.png" class="stretch noborder" />
-					<a href="http://bit.ly/lombardi_websocket_book">http://bit.ly/lombardi_websocket_book</a>
-				</section>
-				<section>
-					<img src="images/797117307482963968-png__700.jpg" width="600" class="noborder" />
-				</section>
-				<section>
-					<img src="images/797612934729973760-png__700.jpg" width="600" class="noborder" />
+					<img src="images/WebSocket_comp.png" class="stretch noborder" /><br />
+					<a href="http://bit.ly/websocketbook">http://bit.ly/websocketbook</a>
 				</section>
 				<section>
 					<h2>Key Points</h2>
@@ -84,7 +80,7 @@
 					<p class="fragment">JavaScript sucks, but React and Redux with ES6 make it bearable</p>
 				</section>
 				<section data-background="images/javascript-on-web-today.png">
-					<small><a href="https://hackernoon.com/how-it-feels-to-learn-javascript-in-2016-d3a717dd577f#.p5emg8fif">How it Feels to Learn JavaScript in 2016</a></small>
+					<small><a href="https://hackernoon.com/how-it-feels-to-learn-javascript-in-2016-d3a717dd577f#.p5emg8fif">How it Feels to Learn JavaScript Today</a></small>
 				</section>
 				<section>
 					<object type="image/svg+xml" width="462" height="80" data="images/Apache_Wicket_logo.svg"></object>
@@ -134,9 +130,9 @@
 					<p><code>yarn</code> instead of <code>npm</code> because it's superior</p>
 				</section>
 				<section>
-					<h2>React Starter Kit</h2>
-						<a href="https://github.com/coryhouse/react-slingshot">React Slingshot</a> by <a href="https://github.com/coryhouse">Cory House</a>
-						<p>Includes all necessary tooling to be successful with React and Redux</p>
+					<h2>Create React App</h2>
+						<a href="https://github.com/facebookincubator/create-react-app">https://github.com/facebookincubator/create-react-app</a>
+						<p>De-facto standard for boostrapping React</p>
 				</section>
 				<section><h2>Hands-On Demo</h2></section>
 				<section>
@@ -144,31 +140,32 @@
 					<p>Also called presentational/dumb components</p>
 <pre><code data-trim>import React from ‘react’;
 
-const HelloWorld = ({name}) => (
- <div>Hello, {name}!}</div>
+const App = ({name}) => (
+ <div>Hello, {name}!</div>
 );
 
-export default HelloWorld;
+export default App;
 </code></pre>
 
 				</section>
 				<section>
 					<h2>Container components</h2>
 					<p class="fragment">The stateful kind</p>
-<pre><code data-trim data-noescape>class HelloWorldContainer extends React.Component {
+<pre><code data-trim data-noescape>import React from ‘react’;
+import App from './App';
+
+class AppContainer extends React.Component {
 	constructor() {
 		super();
-		this.setState({
-			name: ''
-		});
+		this.state = {};
 	}
 
 	componentDidMount() {
-		// do stuff to fill from external sources/APIs
+		this.setState({name: 'Java2Days'});
 	}
 
 	render() {
-		return &lt;HelloWorld name={this.state.name} /&gt;;
+		return &lt;App name={this.state.name} /&gt;;
 	}
 }
 </code></pre>
@@ -307,7 +304,7 @@ export default connect(
 					<p class="fragment">Immutable</p>
 				</section>
 				<section>
-					<h1>Fin</h1>
+					<h1>завършен</h1>
 				</section>
 				<section>
 					<h1>Q &amp; A</h1>
